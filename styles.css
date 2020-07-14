@@ -1,0 +1,90 @@
+body {
+  background-image: url("keyboards-dark.jpg");
+  background-size: cover;
+  margin: 0px;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  font-family: sans-serif;
+}
+
+.container {
+  margin: auto;
+  display: grid;
+  gap: 1rem;
+  width: 60rem;
+  grid-template-columns: 5rem 1fr 5rem;
+  grid-template-areas:
+    ". clock ."
+    ". welcome ."
+    "boxes boxes boxes"
+    ". search .";
+}
+
+#clock {
+  grid-area: clock;
+  font-size: 50pt;
+  font-weight: 400;
+  color: #fdfdfd;
+  text-align: center;
+}
+
+#search {
+  position: absolute;
+  bottom: 2rem;
+  width: 60rem;
+  background-color: #282a36;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 13pt;
+  font-weight: 500;
+  color: yellowgreen;
+  border: none;
+}
+
+#welcome {
+  grid-area: welcome;
+  background-color: #282a36;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 13pt;
+  font-weight: 500;
+  color: #fdfdfd;
+  text-align: center;
+  margin: 0 5rem 0 5rem;
+}
+
+#boxes {
+  grid-area: boxes;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 15rem;
+  gap: 1rem;
+}
+
+#boxes > div {
+  background-color: #282a36;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+#boxes > div > div {
+  padding: 0.5rem 0 0.5rem 0;
+  color: #fdfdfd;
+  font-size: 13pt;
+  font-weight: 600;
+}
+
+#boxes > div > a {
+  /* margin: 0.5rem auto auto 0.5rem; */
+  font-size: 13pt;
+  font-weight: 600;
+  text-decoration: none;
+  color: #bebec1;
+}
+#boxes > div > a:hover {
+  color: #fdfdfd;
+}

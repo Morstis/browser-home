@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="clock"></div>
+      <div id="welcome">Willkommen Lucas</div>
+      <input
+        type="text"
+        name=""
+        id="search"
+        onkeypress="return search(event)"
+        placeholder="google..."
+        autofocus
+      />
+      <div id="boxes">
+        <div>
+          <div>daily</div>
+          <a href="https://www.youtube.com/">Youtube</a>
+          <a href="https://www.netflix.com/browse">Netflix</a>
+          <a href="https://hag-iserv.de/iserv/">Iserv</a>
+        </div>
+        <div>
+          <div>reddit</div>
+          <a href="https://www.reddit.com/r/unixporn">r/unixporn</a>
+          <a href="https://www.reddit.com/r/ProgrammerHumor"
+            >r/programmerHumor</a
+          >
+          <a href="https://www.reddit.com/r/unixporn">r/unixporn</a>
+        </div>
+        <div>
+          <div>dev</div>
+          <a href="https://console.firebase.google.com/?pli=1">Firebase</a>
+          <a href="https://github.com/Morstis">Github</a>
+          <a href="https://material.angular.io/">Angular Material</a>
+          <a href="https://material.io/resources/icons/">Material Icons</a>
+          <a href="https://ionicframework.com/docs">Ionic</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get current time and format
+
+      function getTime() {
+        let date = new Date(),
+          min = date.getMinutes(),
+          sec = date.getSeconds(),
+          hour = date.getHours();
+
+        return (
+          "" +
+          (hour < 10 ? "0" + hour : hour) +
+          ":" +
+          (min < 10 ? "0" + min : min) +
+          ":" +
+          (sec < 10 ? "0" + sec : sec)
+        );
+      }
+
+      function search(event) {
+        if (event.code === "Enter") {
+          window.open(
+            "https://www.google.com/search?q=" +
+              document.getElementById("search").value,
+            "_blank"
+          );
+        }
+      }
+
+      window.onload = () => {
+        // Set up the clock
+        document.getElementById("clock").innerHTML = getTime();
+        document.getElementById("search").autofocus;
+
+        // Set clock interval to tick clock
+        setInterval(() => {
+          document.getElementById("clock").innerHTML = getTime();
+        }, 100);
+      };
+    </script>
+  </body>
+</html>
